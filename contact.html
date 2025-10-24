@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts - Nicolas L. Galvez MNHS SPA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h1 class="display-4 text-center mb-5 animate__animated animate__fadeIn"><b>SPA FACULTY</b></h1>
+            
+            <div class="row g-4">
+                <!-- Example faculty card -->
+                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
+                    <div class="card faculty-card h-100">
+                        <img src="http://static.photos/people/400x400/1" class="card-img-top" alt="Music Teacher">
+                        <div class="card-body">
+                            <h3 class="card-title">Ms. Melody Harmon</h3>
+                            <p class="text-primary mb-2">Music Department Head</p>
+                            <p class="card-text"><i data-feather="phone" class="me-2"></i> (123) 456-7891</p>
+                            <p class="card-text"><i data-feather="mail" class="me-2"></i> melody@galvezmnhs.edu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+
+        // Optional: Animate sections when visible
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__fadeIn');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.major-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
