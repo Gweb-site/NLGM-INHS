@@ -91,6 +91,44 @@ class CustomNavbar extends HTMLElement {
             display: block;
           }
         }
+
+        /* MOBILE BUTTON - ALWAYS VISIBLE ON SMALL SCREENS */
+        .nav-toggle {
+          display: none;
+          background: none;
+          border: none;
+          color: white;
+          font-size: 1.8rem;
+          cursor: pointer;
+          padding: 0.5rem;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+        }
+        .nav-toggle:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* SHOW BUTTON ON MOBILE */
+        @media (max-width: 768px) {
+        .nav-toggle {
+          display: block !important;
+        }
+        ul {
+          position: fixed;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background-color: #6f42c1;
+          flex-direction: column;
+          align-items: center;
+          padding: 1rem 0;
+          clip-path: circle(0px at 90% -10%);
+          transition: clip-path 0.5s ease-out;
+        }
+        ul.open {
+          clip-path: circle(1000px at 90% -10%);
+        }
+      }
       </style>
       <nav>
         <div class="navbar-container">
@@ -119,5 +157,6 @@ class CustomNavbar extends HTMLElement {
     });
   }
 }
+
 
 customElements.define('custom-navbar', CustomNavbar);
