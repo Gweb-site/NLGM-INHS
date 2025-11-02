@@ -94,7 +94,7 @@ class CustomNavbar extends HTMLElement {
 
         /* MOBILE BUTTON - ALWAYS VISIBLE ON SMALL SCREENS */
         .nav-toggle {
-          display: none;
+          display: true;
           background: none;
           border: none;
           color: white;
@@ -160,3 +160,4 @@ class CustomNavbar extends HTMLElement {
 
 
 customElements.define('custom-navbar', CustomNavbar);
+
