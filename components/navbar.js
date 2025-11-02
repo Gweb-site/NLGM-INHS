@@ -91,44 +91,45 @@ class CustomNavbar extends HTMLElement {
             display: block;
           }
         }
-
-        /* MOBILE BUTTON - ALWAYS VISIBLE ON SMALL SCREENS */
+        /* ---------- MOBILE HAMBURGER BUTTON ---------- */
         .nav-toggle {
-          display: true;
+          display: none;               /* hidden on desktop */
           background: none;
           border: none;
-          color: white;
-          font-size: 1.8rem;
+          color: white;                /* white lines */
+          font-size: 1.8rem;           /* size of the 3‑line icon */
           cursor: pointer;
           padding: 0.5rem;
           border-radius: 4px;
-          transition: all 0.3s ease;
+          transition: background-color 0.3s ease;
         }
         .nav-toggle:hover {
           background-color: rgba(255, 255, 255, 0.2);
         }
+        .nav-toggle i {
+          display: block;
+        }
 
-        /* SHOW BUTTON ON MOBILE */
         @media (max-width: 768px) {
-        .nav-toggle {
-          display: block !important;
+          .nav-toggle {
+            display: block !important;   /* force visible on mobile */
+          }
+          ul {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: #6f42c1;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem 0;
+            clip-path: circle(0px at 90% -10%);
+            transition: clip-path 0.5s ease-out;
+          }
+          ul.open {
+            clip-path: circle(1000px at 90% -10%);
+          }
         }
-        ul {
-          position: fixed;
-          top: 70px;
-          left: 0;
-          width: 100%;
-          background-color: #6f42c1;
-          flex-direction: column;
-          align-items: center;
-          padding: 1rem 0;
-          clip-path: circle(0px at 90% -10%);
-          transition: clip-path 0.5s ease-out;
-        }
-        ul.open {
-          clip-path: circle(1000px at 90% -10%);
-        }
-      }
       </style>
       <nav>
         <div class="navbar-container">
@@ -136,6 +137,10 @@ class CustomNavbar extends HTMLElement {
             <img src="images/school logo.png" alt="School Logo">
             <span>Nicolas L. Galvez MINHS - Laguna</span>
           </a>
+          <!-- MOBILE HAMBURGER (3 white lines) -->
+          <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <i data-feather="menu"></i>
+          </button>
           <button class="nav-toggle" id="navToggle">
             <i data-feather="menu"></i>
           </button>
@@ -160,4 +165,5 @@ class CustomNavbar extends HTMLElement {
 
 
 customElements.define('custom-navbar', CustomNavbar);
+
 
